@@ -41,9 +41,11 @@ def findDomain(proxy):
             data.append({'Domain': links})
 
 
+for proxy in proxies:
+   findDomain(proxy)    # WORK
 
-with concurrent.futures.ThreadPoolExecutor() as executor:
-   executor.map(findDomain, proxies)
+# with concurrent.futures.ThreadPoolExecutor() as executor:    #DIDN't WORK
+#    executor.map(findDomain, proxies)      
 
 
 with open('data.json', 'w') as file:
